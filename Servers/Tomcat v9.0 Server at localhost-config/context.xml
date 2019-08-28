@@ -23,9 +23,9 @@
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
-    <!--
+    
     <Manager pathname="" />
-    -->
+    
     <Resource removeAbandonedOnBorrow="true" removeAbandonedTimeout="10" logAbandoned="true" name="db"
             auth="Container"
             type="javax.sql.DataSource"
