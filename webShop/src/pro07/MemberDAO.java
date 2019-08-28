@@ -101,6 +101,28 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public boolean isExisted(MemberVO memberVO) {
+		boolean result = false;
+		String id = memberVO.getId();
+		String pwd = memberVO.getPwd();
+		try {
+			conn = dataFactory.getConnection();
+			//id와 비밀번호가 테이블에 존재하면 true, 존재하지 않으면 false 조회
+			String query = "select if(count(*),'true','false') as result from t_member " ;
+					query += "where id=? And pwd=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			ps.setString(2, pwd);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			result = Boolean.parseBoolean(rs.getString("result"));
+			System.out.println("result="+result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 /*
 	private void connDB() {
