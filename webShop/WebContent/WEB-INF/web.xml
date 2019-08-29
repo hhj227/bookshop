@@ -29,4 +29,20 @@
 		<param-name>menu_goods</param-name>
 		<param-value>상품조회  상품등록 상품수정 상품삭제</param-value>
 	</context-param>
+	
+	<welcome-file-list>
+    <welcome-file>/JSPException/main.jsp</welcome-file>
+    <welcome-file>/JSPException/add.jsp</welcome-file>
+    <welcome-file>/JSPException/add.html</welcome-file>
+  </welcome-file-list>
+	
+	<error-page>
+     <error-code>404</error-code>
+     <location>/err/error_404.jsp</location>
+  </error-page>
+  
+  <error-page>
+     <error-code>500</error-code>
+     <location>/err/error_500.jsp</location>
+  </error-page>
 </web-app>

@@ -27,6 +27,9 @@ public class SessionTest extends HttpServlet {
 		HttpSession session = request.getSession(); //기존 세션 반환 또는 객체 새로 생성
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
+		session.setAttribute("name", "이순신");
+		out.println("<h1>세션에 이름을 바인딩합니다.</h1>");
+		out.println("<a href='/webShop/test02/session1.jsp'>첫번째 페이지로 이동하기 </a><br>");
 		if (session.isNew()) {
 			if(user_id!= null) {
 				session.setAttribute("user_id", user_id);
